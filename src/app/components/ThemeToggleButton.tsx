@@ -24,7 +24,6 @@ const ThemeToggleButton = () => {
         <button
             onClick={toggleTheme}
             className="relative mr-4 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-
             aria-label="Toggle Theme"
         >
             {theme === 'light' ? (
