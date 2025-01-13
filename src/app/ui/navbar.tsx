@@ -1,11 +1,12 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, XMarkIcon, SunIcon } from '@heroicons/react/24/outline'
+import ThemeToggleButton from '../components/ThemeToggleButton'
 
 const user = {
     name: 'Tom Cook',
     email: 'tom@example.com',
     imageUrl:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        '/assets/img/def_img_profile.png',
 }
 const navigation = [
     { name: 'Dashboard', href: '#', current: true },
@@ -24,7 +25,7 @@ function classNames(...classes: any[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Navbar() {
     return (
         <nav>
             <Disclosure as="nav" className="bg-gray-800">
@@ -34,7 +35,7 @@ export default function Example() {
                             <div className="shrink-0">
                                 <img
                                     alt="Your Company"
-                                    src="./assets/img/logo.png"
+                                    src="/assets/img/logo.png"
                                     className="size-8"
                                 />
                             </div>
@@ -58,6 +59,7 @@ export default function Example() {
                         </div>
                         <div className="hidden md:block">
                             <div className="ml-4 flex items-center md:ml-6">
+                                <ThemeToggleButton />
                                 <button
                                     type="button"
                                     className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -95,6 +97,9 @@ export default function Example() {
                             </div>
                         </div>
                         <div className="-mr-2 flex md:hidden">
+                            <div className="ml-4 flex items-center md:ml-6">
+                                <ThemeToggleButton />
+                            </div>
                             {/* Mobile menu button */}
                             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                 <span className="absolute -inset-0.5" />
@@ -104,8 +109,8 @@ export default function Example() {
                             </DisclosureButton>
                         </div>
                     </div>
-                </div>
 
+                </div>
                 <DisclosurePanel className="md:hidden">
                     <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                         {navigation.map((item) => (
@@ -139,8 +144,10 @@ export default function Example() {
                                 <span className="absolute -inset-1.5" />
                                 <span className="sr-only">View notifications</span>
                                 <BellIcon aria-hidden="true" className="size-6" />
+
                             </button>
                         </div>
+
                         <div className="mt-3 space-y-1 px-2">
                             {userNavigation.map((item) => (
                                 <DisclosureButton
