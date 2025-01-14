@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Footer from "./ui/footer";
-import AutoThemeClass from "./components/AutoThemeClass";
+import Footer from "../ui/footer";
+import AutoThemeClass from "../components/AutoThemeClass";
 import Head from "next/head";
 
 export const metadata: Metadata = {

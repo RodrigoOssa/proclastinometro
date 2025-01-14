@@ -1,13 +1,14 @@
-import Navbar from "../ui/navbar";
+import Navbar from "../../ui/navbar";
 
 const Dashboard = () => {
     return (
         <div className="min-h-full">
-            <header className="bg-slate-500 shadow">
+            <header className="">
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                    <h1 className="text-3xl font-bold tracking-tight text-zinc-200">Dashboard</h1>
+                    <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-slate-50">Dashboard</h1>
                 </div>
             </header>
+            <hr className="w-10/12 m-1 opacity-75 mx-auto border-gray-800 dark:shadow-white dark:border-slate-200" />
             <main>
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 text-zinc-900 dark:text-slate-50">
                     <h3>¿Qué es Lorem Ipsum?</h3>

@@ -1,6 +1,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon, SunIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import ThemeToggleButton from '../components/ThemeToggleButton'
+import Link from 'next/link'
 
 const user = {
     name: 'Tom Cook',
@@ -9,16 +10,15 @@ const user = {
         '/assets/img/def_img_profile.png',
 }
 const navigation = [
-    { name: 'Dashboard', href: '#', current: true },
-    { name: 'Team', href: '#', current: false },
+    { name: 'Dashboard', href: '/dashboard', current: true },
+    { name: 'Equipo', href: '/dashboard/team', current: false },
     { name: 'Projects', href: '#', current: false },
     { name: 'Calendar', href: '#', current: false },
     { name: 'Reports', href: '#', current: false },
 ]
 const userNavigation = [
-    { name: 'Your Profile', href: '#' },
-    { name: 'Settings', href: '#' },
-    { name: 'Sign out', href: '#' },
+    { name: 'Perfil', href: '/profile' },
+    { name: 'Logout', href: '#' },
 ]
 
 function classNames(...classes: any[]) {
@@ -42,7 +42,7 @@ export default function Navbar() {
                             <div className="hidden md:block">
                                 <div className="ml-10 flex items-baseline space-x-4">
                                     {navigation.map((item) => (
-                                        <a
+                                        <Link
                                             key={item.name}
                                             href={item.href}
                                             aria-current={item.current ? 'page' : undefined}
@@ -52,7 +52,7 @@ export default function Navbar() {
                                             )}
                                         >
                                             {item.name}
-                                        </a>
+                                        </Link>
                                     ))}
                                 </div>
                             </div>
@@ -84,12 +84,12 @@ export default function Navbar() {
                                     >
                                         {userNavigation.map((item) => (
                                             <MenuItem key={item.name}>
-                                                <a
+                                                <Link
                                                     href={item.href}
                                                     className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:outline-none"
                                                 >
                                                     {item.name}
-                                                </a>
+                                                </Link>
                                             </MenuItem>
                                         ))}
                                     </MenuItems>
