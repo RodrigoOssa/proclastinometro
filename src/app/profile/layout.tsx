@@ -6,7 +6,6 @@ export default function ProfileLayout({ children }: Readonly<{
 
     return (
         <div>
-            <Navbar />
             {children}
         </div>
     )

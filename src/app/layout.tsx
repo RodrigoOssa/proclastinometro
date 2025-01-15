@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Footer from "../ui/footer";
 import AutoThemeClass from "../components/AutoThemeClass";
-import Head from "next/head";
+
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,21 +12,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning className="h-full">
       <body className="h-full bg-white dark:bg-darkBg">
-
         <AutoThemeClass />
-
-        <div className="">
-          <div className="min-h-screen">
-            {children}
-          </div>
-          <div className="">
-            <Footer></Footer>
-          </div>
+        <div className="h-full">
+          {children}
         </div>
       </body>
-    </html>
+    </html >
   );
 }
