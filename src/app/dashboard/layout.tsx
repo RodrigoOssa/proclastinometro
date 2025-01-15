@@ -5,10 +5,10 @@ export default function DashboardLayout({ children }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
-        <div className="h-full">
+        <div className="h-auto min-h-screen">
             <Navbar />
             {children}
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

@@ -13,9 +13,12 @@
   :root {
     --background: #222;
     --foreground: #222;
-    --text-color-primary: #f8fafc;
-    --title-color-primary: #f8fafc;
   }
+}
+
+.dark {
+  --text-color-primary: #f8fafc;
+  --title-color-primary: #f8fafc;
 }
 
 html {

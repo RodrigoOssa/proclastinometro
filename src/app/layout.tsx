@@ -17,9 +17,7 @@ export default function RootLayout({ children }: Readonly<{
     <html lang="es" suppressHydrationWarning className="h-full">
       <body className="h-full bg-white dark:bg-darkBg">
         <AutoThemeClass />
-        <div className="h-full">
-          {children}
-        </div>
+        {children}
       </body>
     </html >
   );

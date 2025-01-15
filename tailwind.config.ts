@@ -16,8 +16,8 @@ export default {
         darkBg: '#222',
       },
       textColor: {
-        textColor: "var(--text-color-primary)",
-        titleColor: "var(--title-color-primery)",
+        pColor: "var(--text-color-primary)",
+        hColor: "var(--title-color-primary)",
 
       }
     },
