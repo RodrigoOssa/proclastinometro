@@ -2,6 +2,7 @@ import ProductiveTime from "@/components/ProductiveTime";
 import WelcomeUser from "./WelcomeUser";
 import ProclastinateTime from "@/components/ProclastinateTime";
 import ProjectList from "@/components/ProjectsList";
+import Notes from "@/components/Notes";
 
 const Dashboard = () => {
     return (
@@ -11,6 +12,7 @@ const Dashboard = () => {
             <ProductiveTime />
             <ProclastinateTime />
             <ProjectList />
+            <Notes />
         </main>
     )
 }

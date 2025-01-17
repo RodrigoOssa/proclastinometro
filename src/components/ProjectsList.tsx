@@ -23,7 +23,7 @@ export default function ProjectList() {
         },
     ];
     return (
-        <section className="mx-auto mb-10 px-4 py-6 max-w-7xl sm:px-6 lg:px-8">
+        <section className="mx-auto px-4 py-6 max-w-7xl sm:px-6 lg:px-8">
             <h1 className="text-hColor dark:text-hColor text-2xl">
                 Proyectos
             </h1>
@@ -32,7 +32,7 @@ export default function ProjectList() {
                 {projects.map(project => (
                     <Link href={project.link} key={project.id} className="block p-6  rounded-lg  hover:border hover:border-gray-200 shadow-md hover:bg-gray-100 transform transition-transform duration-300 hover:scale-105 shadow-lg bg-white dark:bg-gray-800">
                         <div className="project-card-content flex items-center justify-center tooltip" style={{ backgroundImage: `url('${project.img}/image-${project.id}.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', color: 'white', height: '200px' }}>
-                            <span className="text-xl font-semibold text-orange-400 tooltip-text bg-slate-700/75 dark:bg-slate-50/75">{project.name}</span>
+                            <span className="text-xl font-semibold text-orange-400 tooltip-text bg-darkBg/75 dark:darkBg/75">{project.name}</span>
                         </div>
                     </Link>
                 ))}
