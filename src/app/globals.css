@@ -22,10 +22,34 @@
 
 }
 
-
 body {
   transition: background-color 0.3s, color 0.3s;
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.tooltip {
+  cursor: pointer;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 150px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  bottom: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }
