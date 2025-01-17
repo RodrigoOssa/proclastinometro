@@ -7,19 +7,19 @@ export default function ProjectList() {
             id: 1,
             name: 'Project One',
             link: '/project-one',
-            img: '/path/to/image-1.jpg'
+            img: `/assets/img/1`
         },
         {
             id: 2,
             name: 'Project Two',
             link: '/project-two',
-            img: '/path/to/image-2.jpg'
+            img: `/assets/img/2`
         },
         {
             id: 3,
             name: 'Project Three',
             link: '/project-three',
-            img: '/path/to/image-3.jpg'
+            img: `/assets/img/3`
         },
     ];
     return (
@@ -30,8 +30,8 @@ export default function ProjectList() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
                 {projects.map(project => (
-                    <Link href={project.link} key={project.id} className="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 transform transition-transform duration-300 hover:scale-105 shadow-lg">
-                        <div className="project-card-content flex items-center justify-center" style={{ backgroundImage: `url('/path/to/image-${project.id}.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', color: 'white', height: '200px' }}>
+                    <Link href={project.link} key={project.id} className="block p-6  rounded-lg  hover:border hover:border-gray-200 shadow-md hover:bg-gray-100 transform transition-transform duration-300 hover:scale-105 shadow-lg bg-white dark:bg-gray-800">
+                        <div className="project-card-content flex items-center justify-center" style={{ backgroundImage: `url('${project.img}/image-${project.id}.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', color: 'white', height: '200px' }}>
                             <h3 className="text-xl font-semibold text-orange-400">{project.name}</h3>
                         </div>
                     </Link>
