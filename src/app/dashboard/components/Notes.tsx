@@ -5,6 +5,7 @@ import { DndContext, closestCenter, useSensor, useSensors, TouchSensor, MouseSen
 import { arrayMove, useSortable, SortableContext } from '@dnd-kit/sortable';
 import { restrictToParentElement } from '@dnd-kit/modifiers';
 import { PlusCircleIcon, TrashIcon, PencilIcon } from '@heroicons/react/24/outline';
+import NoteActions from '../../../components/NoteActions';
 
 interface Note {
     id: string;
@@ -21,11 +22,12 @@ const NoteCard: React.FC<
 > =
     ({ note, editNote, deleteNote }) => {
 
-        const [isEditing, setIsEditing] = useState(false);
+        const [isChange, setIsChange] = useState<boolean>(false);
+        const [actionType, setActionType] = useState<string>("none");
 
         const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
             id: note.id,
-            disabled: isEditing,
+            disabled: isChange,
         });
 
         const style = {
@@ -48,45 +50,43 @@ const NoteCard: React.FC<
                 </p>
                 <div className="flex justify-end space-x-2 ">
                     <button
-                        onMouseUp={() => deleteNote(note.id)}
+                        onMouseUp={() => {
+                            setIsChange(true);
+                            setActionType("delete");
+                        }}
                         className="p-1 text-red-500 hover:text-red-700"
                     >
                         <TrashIcon className="h-5 w-5" />
                     </button>
+                    {isChange && actionType === "delete" && <NoteActions
+                        id={note.id}
+                        isChange={setIsChange}
+                        actionFunc={deleteNote}
+                        actionText="¿Estás seguro de eliminar esta nota?"
+                        actionType={setActionType}
+                        textArea={note.content}
+                    />
+                    }
+
                     <button
-                        onMouseUp={() => setIsEditing(true)}
+                        onMouseUp={() => {
+                            setIsChange(true);
+                            setActionType("edit");
+                        }}
                         className="p-1 text-blue-500 hover:text-blue-700"
                     >
                         <PencilIcon className="h-5 w-5" />
                     </button>
-                    {isEditing && (
-                        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 w-full h-full z-50">
-                            <div className="bg-white dark:bg-gray-800 p-6 rounded shadow-lg">
-                                <textarea
-                                    className="w-full h-40 p-2 border border-gray-300 rounded"
-                                    value={note.content}
-                                    onChange={(e) => editNote(note.id, e.target.value)}
-                                />
-                                <div className="flex justify-end space-x-2 mt-4">
-                                    <button
-                                        onClick={() => setIsEditing(false)}
-                                        className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700"
-                                    >
-                                        Cancelar
-                                    </button>
-                                    <button
-                                        onClick={() => {
-                                            editNote(note.id, note.content);
-                                            setIsEditing(false);
-                                        }}
-                                        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
-                                    >
-                                        Guardar
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    )}
+                    {isChange && actionType === "edit" && <NoteActions
+                        id={note.id}
+                        isChange={setIsChange}
+                        actionFunc={editNote}
+                        actionText=""
+                        actionType={setActionType}
+                        textArea={note.content}
+                    />
+                    }
+
                 </div>
             </div>
         );
@@ -119,7 +119,6 @@ export default function Notes() {
             content: 'Nueva Nota',
         };
         setNotes((prev) => [...prev, newNote]);
-        console.log("Estas presionando el boton de agregar notas")
     };
 
     // Editar el contenido de una nota
@@ -127,7 +126,6 @@ export default function Notes() {
         setNotes((prev) =>
             prev.map((note) => (note.id === id ? { ...note, content: newContent } : note))
         );
-        console.log("Estas presionando el boton editar nota", id)
     };
 
     // Eliminar una nota
