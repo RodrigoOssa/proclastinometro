@@ -4,8 +4,8 @@ import ThemeToggleButton from '../components/ThemeToggleButton'
 import Link from 'next/link'
 
 const user = {
-    name: 'Tom Cook',
-    email: 'tom@example.com',
+    name: 'Lalo Landa',
+    email: 'LLanda@example.com',
     imageUrl:
         '/assets/img/def_img_profile.png',
 }

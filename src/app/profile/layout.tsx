@@ -5,7 +5,8 @@ export default function ProfileLayout({ children }: Readonly<{
 }>) {
 
     return (
-        <div>
+        <div className="h-auto min-h-screen">
+            <Navbar />
             {children}
         </div>
     )

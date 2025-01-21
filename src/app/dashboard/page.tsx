@@ -1,5 +1,5 @@
 import ProductiveTime from "@/app/dashboard/components/ProductiveTime";
-import WelcomeUser from "./WelcomeUser";
+import WelcomeUser from "./components/WelcomeUser";
 import ProclastinateTime from "@/app/dashboard/components/ProclastinateTime";
 import ProjectList from "@/app/dashboard/components/ProjectsList";
 import Notes from "@/app/dashboard/components/Notes";
