@@ -11,10 +11,10 @@ const user = {
 }
 const navigation = [
     { name: 'Dashboard', href: '/dashboard', current: true },
-    { name: 'Equipo', href: '/dashboard/team', current: false },
-    { name: 'Projects', href: '#', current: false },
-    { name: 'Calendar', href: '#', current: false },
-    { name: 'Reports', href: '#', current: false },
+    { name: 'Equipo', href: '/team', current: false },
+    { name: 'Proyectos', href: '/projects', current: false },
+    { name: 'Productividad', href: '/productivity', current: false },
+    { name: 'Proclastinómetro', href: '/procrastinate', current: false },
 ]
 const userNavigation = [
     { name: 'Perfil', href: '/profile' },

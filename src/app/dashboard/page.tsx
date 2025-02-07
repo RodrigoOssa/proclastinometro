@@ -9,7 +9,7 @@ const Dashboard = () => {
         <main
             className="container mx-3 w-auto mt-5 mb-10 p-1 flex-col justify-center md:m-auto space-y-5.5">
             <WelcomeUser />
-            <ProductiveTime />
+            <ProductiveTime title="Horas productivas" />
             <ProclastinateTime />
             <ProjectList />
             <Notes />
